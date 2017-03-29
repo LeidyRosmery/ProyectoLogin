@@ -1,18 +1,12 @@
-var miCoder=new Coder();
-function Coder(){
-  this.arrayCoder=[];
-  this.contador=0;
-  this.agrega=function(nombre,apellido,correo,contraseña){
-    this.arrayCoder.push({
-       id:this.contador,
-       nombre:nombre,
-       apellido:apellido,
-       correo:correo,
-       contraseña:contraseña
-    })
-    this.contador ++;
-  }
-}
+
+function Coder(nombre,apellido,correo,contraseña){
+		this.nombre = nombre;
+		this.apellido = apellido;
+		this.correo = correo;
+		this.contraseña = contraseña;
+	};
+
+
 
 var nombre=document.getElementById("nombre");
 var apellido=document.getElementById("apellido");
@@ -22,11 +16,16 @@ var contraseña=document.getElementById("contraseña");
 
 document.getElementById("Registro").addEventListener("click", function(e){
   e.preventDefault();
-miCoder.agrega(nombre.value , apellido.value , correo.value , contraseña.value);
 
-  localStorage.setItem("Laboratoria", JSON.stringify(miCoder));
-  console.log(miCoder.arrayCoder.length);
-  window.location="bienvenida.html";
 
+  if(nombre.length!=0 && apellido.length!=0 && correo.length!=0 && contraseña.length!=0) {
+  			localStorage.setItem("Laboratoria",JSON.stringify(new Coder(nombre.value,apellido.value,correo.value,contraseña.value,contraseña.value)));
+  			document.getElementById("registra").reset()
+  			  window.location="bienvenida.html";
+  		}
+  		else{
+  			var nota=document.getElementById("nota");
+        nota.innerHTML="ingrese todos los campos";
+  		}
 
 });
