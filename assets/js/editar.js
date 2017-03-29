@@ -1,4 +1,6 @@
-var codeadora = JSON.parse(localStorage.getItem("Laboratoria"));
+
+var usuario=localStorage.getItem("usuario");
+var codeadora = JSON.parse(localStorage.getItem(usuario));
 	var inputsEditar = document.getElementsByTagName("input");
 	inputsEditar[0].value = codeadora.nombre;
 	inputsEditar[1].value = codeadora.apellido;
@@ -11,11 +13,10 @@ var codeadora = JSON.parse(localStorage.getItem("Laboratoria"));
 			codeadora.apellido= inputsEditar[1].value
 			codeadora.correo = inputsEditar[2].value;
 			codeadora.contraseña = inputsEditar[3].value;
-			localStorage.setItem("Laboratoria",JSON.stringify(codeadora));
+			localStorage.setItem(usuario,JSON.stringify(codeadora));
 			window.location="bienvenida.html"
 		}
 		else{
 			alert("Todos los campos son obligatorios");
-
 }
 });

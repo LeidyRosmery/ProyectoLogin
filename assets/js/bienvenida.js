@@ -17,7 +17,9 @@ function creandoDiv(array){
           contenedor.appendChild(p4);
 }
 
-var codeadora = JSON.parse(localStorage.getItem("Laboratoria"));
+var usuario=localStorage.getItem("usuario");
+var codeadora = JSON.parse(localStorage.getItem(usuario));
+
 
 creandoDiv(codeadora);
 document.getElementById("editar").addEventListener("click",function(e){
