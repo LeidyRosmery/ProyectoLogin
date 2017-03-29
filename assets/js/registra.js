@@ -2,6 +2,7 @@ var nombre=document.getElementById("nombre");
 var apellido=document.getElementById("apellido");
 var correo=document.getElementById("correo");
 var contraseña=document.getElementById("contraseña");
+var spans=document.getElementsByTagName("span");
 
 function Coder(nombre,apellido,correo,contraseña){
 		this.nombre = nombre;
@@ -9,6 +10,26 @@ function Coder(nombre,apellido,correo,contraseña){
 		this.correo = correo;
 		this.contraseña = contraseña;
 	};
+
+
+
+	var soloPass = function(e){
+	var codigoTecla = e.keyCode;
+	if(contraseña.value.length<6){
+		spans[3].innerHTML="ingrese una contraseña mas larga"
+		console.log("entra");
+		return true;
+	}else{
+		spans[3].innerHTML= "";
+		console.log("entr2222a");
+		return false;
+	}
+}
+contraseña.onkeypress=soloPass;
+
+
+
+
 
 
 
